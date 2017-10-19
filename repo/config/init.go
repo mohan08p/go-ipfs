@@ -71,6 +71,14 @@ func Init(out io.Writer, nBitsForKeypair int) (*Config, error) {
 			Interval: "12h",
 			Strategy: "all",
 		},
+		Swarm: SwarmConfig{
+			ConnMgr: ConnMgr{
+				LowWater:    900,
+				HighWater:   1000,
+				GracePeriod: "20s",
+				Type:        "basic",
+			},
+		},
 	}
 
 	return conf, nil
